@@ -9,21 +9,27 @@ public class Cart {
 		else {
 			itemsOrdered[qtyOrdered] = disc;
 			qtyOrdered++;
+			System.out.println("The disc has been added");
 		}
 	}
 	public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
 		if(qtyOrdered == 0) System.out.println("Already empty");
 		else {
 			for(int i=0; i<qtyOrdered; i++)
-				if(itemsOrdered[qtyOrdered] == disc) {
+				if(itemsOrdered[i] == disc) {
 					for(int j=i; j<qtyOrdered-1; j++) 
 						itemsOrdered[j] = itemsOrdered[j+1];
 					break;
 				}
 			qtyOrdered--;
+			System.out.println("The disc has been removed");
 		}
 	}
-	public int totalCost() {
-		for(int i=0; i<qtyOrdered;)
+	public float totalCost() {
+		float total_cost=0;
+		for(int i=0; i<qtyOrdered; i++) {
+			total_cost += itemsOrdered[i].getCost();
+		}
+		return total_cost;
 	}
 }
