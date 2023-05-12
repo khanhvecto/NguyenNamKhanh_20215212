@@ -16,16 +16,42 @@ public class Cart {
 	}
 	
 	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
-		for(int i=0; i<dvdList.size(); i++) {
+		int i = 0;
+		while(qtyOrdered<=MAX_NUMBERS_ORDERED) {
 			if(qtyOrdered == MAX_NUMBERS_ORDERED) {
 				System.out.println("The cart is almost full");
 				break;
-			} else {
+			} else if(i == dvdList.length)
+				break;
+			else{
 				itemsOrdered[qtyOrdered] = dvdList[i];
 				qtyOrdered++;
 				i++;
 				System.out.println("The disc has been added");
 			}
+		}
+	}
+	
+	public void addDigitalVideoDisc(String title, String category, float cost) {
+		if(qtyOrdered == MAX_NUMBERS_ORDERED)
+			System.out.println("The cart is almost full");
+		else {
+			DigitalVideoDisc newone = new DigitalVideoDisc(title, category, cost);
+			itemsOrdered[qtyOrdered] = newone;
+			qtyOrdered++;
+			System.out.println("The disc has been added");
+		}
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2) {
+		if(qtyOrdered >= MAX_NUMBERS_ORDERED-1)
+			System.out.println("Cant add more");
+		else {
+			itemsOrdered[qtyOrdered] = dvd1;
+			qtyOrdered++;
+			itemsOrdered[qtyOrdered] = dvd2;
+			qtyOrdered++;
+			System.out.println("The disc has been added");
 		}
 	}
 	

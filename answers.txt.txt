@@ -1,0 +1,9 @@
+2. Working with method overloading
+	Compare 2 method: the array parameter method is more effective because i can add more disc to the Cart easily. I prefer the method which its parameter is a list.
+3. Passing parameter
+	After the call of swap(jungleDVD, cinderellaDVD), the title sitll remains because we pass the arguments by value. The change inside not affects the outside.
+	After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()), the title changes because we passed arguments by references. The change affect it real value.
+	The appropriate swap() method to correctly swap the value:
+		public static void swap(DI) {
+			
+		}
