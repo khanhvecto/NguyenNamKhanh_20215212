@@ -1,9 +1,32 @@
 2. Working with method overloading
 	Compare 2 method: the array parameter method is more effective because i can add more disc to the Cart easily. I prefer the method which its parameter is a list.
 3. Passing parameter
-	After the call of swap(jungleDVD, cinderellaDVD), the title sitll remains because we pass the arguments by value. The change inside not affects the outside.
-	After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()), the title changes because we passed arguments by references. The change affect it real value.
-	The appropriate swap() method to correctly swap the value:
-		public static void swap(DI) {
-			
+	- Java is a pass by value programming language.
+	- After the call of swap(jungleDVD, cinderellaDVD), the title sitll remains because we pass the arguments by value. The change inside not affects the outside.
+	- After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()), the title changes because we passed arguments by references. The change affect it real value.
+	- The appropriate swap() method to correctly swap the value:
+		public static Address swap(DigitalVideoDisc d1, DigitalVideoDisc d2) {
+			return new Address(d1, d2);
 		}
+In this method, we return an Adress object, which contains 2 swapped references. Adress class is definded as below:
+		public class Address {
+			private DigitalVideoDisc address1;
+			private DigitalVideoDisc address2;
+	
+			public Address(DigitalVideoDisc d1, DigitalVideoDisc d2) {
+				address1 = d1;
+				address2 = d2;
+			}
+			public DigitalVideoDisc getAddress1() {
+				return address1;
+			}
+			public DigitalVideoDisc getAddress2() {
+				return address2;
+			}
+		}
+So in the main method, after swap, we store the return in a new Adress object, then we pass the value in that to jungleDVD and cinderellaDVD:
+		Address newaddress = swap(jungleDVD, cinderellaDVD);
+		jungleDVD = newaddress.getAddress1();
+		cinderellaDVD = newaddress.getAddress2();
+
+4. 
