@@ -1,4 +1,5 @@
 package hust.soict.globalict.garbage;
+import java.util.*;
 
 public class ConcatenationInLoops {
 	public static void main(String[] args) {
