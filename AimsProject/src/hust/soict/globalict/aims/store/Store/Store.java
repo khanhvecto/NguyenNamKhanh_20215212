@@ -1,6 +1,6 @@
 package hust.soict.globalict.aims.store.Store;
 
-import hust.soict.gobalict.aims.disc.DigitalVideoDisc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class Store {
 	private DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[MAX_SIZE];

@@ -1,17 +1,16 @@
-package hust.soict.gobalict.aims.disc.DigitalVideoDisc;
+package hust.soict.globalict.aims.media;
 
-public class DigitalVideoDisc {
-	private String title;
-	private String category;
-	private String director;
-	private int length;
-	private float cost;
+public class DigitalVideoDisc extends Disc implements Playable{
 	private static int nbDigitalVideoDiscs = 0;
-	private int id;
 	
+	public void play() {
+		System.out.println("Playing track: " + this.getTitle());
+		System.out.println("Track length: " + this.getLength());
+	}
+
 	public DigitalVideoDisc(String title) {
 		super();
-		this.title = title;
+		this.setTitle(title);
 		nbDigitalVideoDiscs++;
 		id = nbDigitalVideoDiscs;
 	}
@@ -43,26 +42,11 @@ public class DigitalVideoDisc {
 		id = nbDigitalVideoDiscs;
 	}
 	
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public String getCategory() {
-		return category;
-	}
 	public String getDirector() {
 		return director;
 	}
 	public int getLength() {
 		return length;
-	}
-	public float getCost() {
-		return cost;
-	}
-	public int getId() {
-		return id;
 	}
 	public String toString() {
 		String a = new String("DVD - ");

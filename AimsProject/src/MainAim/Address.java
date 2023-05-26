@@ -1,6 +1,6 @@
 package MainAim;
 
-import hust.soict.gobalict.aims.disc.DigitalVideoDisc.DigitalVideoDisc;
+import hust.soict.globalict.aims.media.DigitalVideoDisc;
 
 public class Address {
 	private DigitalVideoDisc address1;
