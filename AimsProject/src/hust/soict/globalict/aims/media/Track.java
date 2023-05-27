@@ -9,6 +9,12 @@ public class Track implements Playable{
 		System.out.println("Track length: " + this.getLength());
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Track track = (Track) obj;
+		return (this.title.equals(track.getTitle()) && length==track.getLength());
+	}
+	
 	public Track() {
 		// TODO Auto-generated constructor stub
 		super();
@@ -18,5 +24,11 @@ public class Track implements Playable{
 	}
 	public int getLength() {
 		return length;
+	}
+	public void setLength(int length) {
+		this.length = length;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 }

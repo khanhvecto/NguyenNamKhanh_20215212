@@ -3,58 +3,66 @@ package hust.soict.globalict.aims.media;
 public class DigitalVideoDisc extends Disc implements Playable{
 	private static int nbDigitalVideoDiscs = 0;
 	
+//	@Override
+//	public int compareTo(Media media) {
+//		DigitalVideoDisc dvd = (DigitalVideoDisc) media;
+//		if(this.getTitle().compareTo(dvd.getTitle()) != 0) return this.getTitle().compareTo(dvd.getTitle());
+//		else if(this.getLength() > dvd.getLength()) return -1;
+//		else if(this.getLength() < dvd.getLength()) return 1;
+//		else return (this.getCost() > dvd.getCost() ? -1 : 1);
+//	}
+	
 	public void play() {
-		System.out.println("Playing track: " + this.getTitle());
-		System.out.println("Track length: " + this.getLength());
+		System.out.println("Playing DVD: " + this.getTitle());
+		System.out.println("DVD length: " + this.getLength());
 	}
-
+	public DigitalVideoDisc() {
+		super();
+		nbDigitalVideoDiscs++;
+		setId(nbDigitalVideoDiscs);
+	}
 	public DigitalVideoDisc(String title) {
 		super();
 		this.setTitle(title);
 		nbDigitalVideoDiscs++;
-		id = nbDigitalVideoDiscs;
-	}
+		this.setId(nbDigitalVideoDiscs);
+	} 
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setDirector(director);
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	public DigitalVideoDisc(String title, String category, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
-		this.title = title;
-		this.category = category;
-		this.director = director;
-		this.length = length;
-		this.cost = cost;
+		this.setTitle(title);
+		this.setCategory(category);
+		this.setDirector(director);
+		this.setLength(length);
+		this.setCost(cost);
 		nbDigitalVideoDiscs++;
-		id = nbDigitalVideoDiscs;
+		this.setId(nbDigitalVideoDiscs);
 	}
-	
-	public String getDirector() {
-		return director;
-	}
-	public int getLength() {
-		return length;
-	}
+		
+	@Override
 	public String toString() {
 		String a = new String("DVD - ");
-		a = a + title + " - " + category + " - " + director + " - " + String.valueOf(length) + ": " + String.valueOf(cost) + "$";
+		a = a + String.valueOf(getId()) + " - " + getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + String.valueOf(getLength()) + " min: " + String.valueOf(getCost()) + "$";
 		return a;
 	}
 	public boolean isMatch(String title) {
-		if(this.title == title) return true;
+		if(getTitle() == title) return true;
 		return false;
 	}
 }
