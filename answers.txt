@@ -1,32 +1,14 @@
-2. Working with method overloading
-	Compare 2 method: the array parameter method is more effective because i can add more disc to the Cart easily. I prefer the method which its parameter is a list.
-3. Passing parameter
-	- Java is a pass by value programming language.
-	- After the call of swap(jungleDVD, cinderellaDVD), the title sitll remains because we pass the arguments by value. The change inside not affects the outside.
-	- After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()), the title changes because we passed arguments by references. The change affect it real value.
-	- The appropriate swap() method to correctly swap the value:
-		public static Address swap(DigitalVideoDisc d1, DigitalVideoDisc d2) {
-			return new Address(d1, d2);
-		}
-In this method, we return an Adress object, which contains 2 swapped references. Adress class is definded as below:
-		public class Address {
-			private DigitalVideoDisc address1;
-			private DigitalVideoDisc address2;
-	
-			public Address(DigitalVideoDisc d1, DigitalVideoDisc d2) {
-				address1 = d1;
-				address2 = d2;
-			}
-			public DigitalVideoDisc getAddress1() {
-				return address1;
-			}
-			public DigitalVideoDisc getAddress2() {
-				return address2;
-			}
-		}
-So in the main method, after swap, we store the return in a new Adress object, then we pass the value in that to jungleDVD and cinderellaDVD:
-		Address newaddress = swap(jungleDVD, cinderellaDVD);
-		jungleDVD = newaddress.getAddress1();
-		cinderellaDVD = newaddress.getAddress2();
+11)
+	 In detail, when i call the function toString(), the 3 type of media print the different format depends on the toString() method of each class. Althought i dont have toString() method at Media class. This is because each object is initialized by a different class, the method simply call from that class, not from the class it is inherited from.
 
-4. 
+12)
+	- The object class we want to sort should implements the Comparable interface. In this case: Media.
+	- We override the compareTo method to reflect the order we want for sorting. For example:
+		@Override
+		public int compareTo(Media media) {
+			if(this.cost > media.getCost()) return 1;
+			else if(this.cost < media.getCost()) return -1;
+			else return (this.title.compareTo(media.getTitle()));
+		}
+	- We can't have different ordering rules for Comparable interface. Because the rule is present in compareTo() method and each type of object can only has 1 method compareTo(). So we have the object with unique soting rule.
+	- I can override the compareTo() method in the DigitalVideoDisc class to modify the new ordering rule for DVD. But that comes along the problem when sort with other Media types(Book, Cd) because sort multiple subclass require the unique ordering rule.
