@@ -9,10 +9,12 @@ public class CompactDisc extends Disc implements Playable{
 	private static int nbCompactDiscs = 0;
 	
 	@Override
-	public void play() {
+	public String play() {
+		String a = new String();
 		for(Track track: tracks) {
-			track.play();
+			a += track.play();
 		}
+		return a;
 	}
 	@Override
 	public String toString() {

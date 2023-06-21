@@ -1,8 +1,6 @@
 package hust.soict.globalict.aims.media;
 import java.util.*;
-interface Playable {
-	public void play();
-}
+
 
 public abstract class Media implements Comparable<Media>{
 	private String title;

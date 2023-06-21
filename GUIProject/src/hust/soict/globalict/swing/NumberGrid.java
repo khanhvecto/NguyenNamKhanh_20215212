@@ -21,6 +21,7 @@ public class NumberGrid extends JFrame{
 		Container cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(tfDisplay, BorderLayout.NORTH);
+		setVisible(true);
 		cp.add(panelButtons, BorderLayout.CENTER);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

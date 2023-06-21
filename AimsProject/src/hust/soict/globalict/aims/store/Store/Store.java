@@ -4,7 +4,7 @@ import java.util.List;
 import hust.soict.globalict.aims.media.Media;
 
 public class Store {
-	private List<Media> itemsInStore = new ArrayList<Media>();
+	private ArrayList<Media> itemsInStore = new ArrayList<Media>();
 	private static int MAX_SIZE = 20;
 	
 	public Media search(String title) {
@@ -60,4 +60,8 @@ public class Store {
 		for(Media item: itemsInStore) System.out.println(item.toString());
 		System.out.println("*********************************************************************");
 	}
+	public ArrayList<Media> getItemsInStore() {
+		return itemsInStore;
+	}
+	
 }

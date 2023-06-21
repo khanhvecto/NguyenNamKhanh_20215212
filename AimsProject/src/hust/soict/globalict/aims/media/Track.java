@@ -4,9 +4,10 @@ public class Track implements Playable{
 	private String title;
 	private int length;
 	
-	public void play() {
-		System.out.println("Playing track: " + this.getTitle());
-		System.out.println("Track length: " + this.getLength());
+	public String play() {
+		String a = ("Playing track: " + this.getTitle() + "\n");
+		a += ("Track length: " + this.getLength() + "\n");
+		return a;
 	}
 	
 	@Override
